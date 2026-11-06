@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al-Qur'an Indonesia - Baca Online & Terjemahan Lengkap Kemenag RI</title>
+  <meta name="description" content="Baca Al-Qur'an 30 Juz 114 Surat lengkap dengan terjemahan bahasa Indonesia standar Kemenag RI, audio murottal merdu, tafsir ringkas, dan tipografi nyaman di mata.">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       App Header / Navbar
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand" title="Beranda Al-Qur'an Indonesia">
+        <div class="brand-icon-box" id="brandLogoBox">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoBgGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#047857" />
+                <stop offset="100%" stop-color="#064e3b" />
+              </linearGradient>
+              <linearGradient id="logoGold" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#fde68a" />
+                <stop offset="50%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#b45309" />
+              </linearGradient>
+              <linearGradient id="logoPageL" x1="12" y1="16" x2="22" y2="30" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="100%" stop-color="#e2e8f0" />
+              </linearGradient>
+              <linearGradient id="logoPageR" x1="22" y1="16" x2="32" y2="30" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="100%" stop-color="#ecfdf5" />
+              </linearGradient>
+            </defs>
+            <rect width="44" height="44" rx="13" fill="url(#logoBgGrad)" />
+            <rect x="1.5" y="1.5" width="41" height="41" rx="11.5" stroke="url(#logoGold)" stroke-width="1.2" stroke-opacity="0.65" />
+            
+            <!-- Radiant Islamic Star Motif -->
+            <path d="M22 6 L23.5 9.5 L27 11 L23.5 12.5 L22 16 L20.5 12.5 L17 11 L20.5 9.5 Z" fill="url(#logoGold)" />
+            
+            <!-- Rehal (Book Stand) Base -->
+            <path d="M14 34 L22 28 L30 34 M17 31.5 L27 31.5" stroke="url(#logoGold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            
+            <!-- Open Quran Pages -->
+            <path d="M22 18 C18 17 13 18 10.5 20 C10 20.4 9.8 21 9.8 21.6 L9.8 28.5 C12 27 17 26 22 27.5 Z" fill="url(#logoPageL)" />
+            <path d="M22 18 C26 17 31 18 33.5 20 C34 20.4 34.2 21 34.2 21.6 L34.2 28.5 C32 27 27 26 22 27.5 Z" fill="url(#logoPageR)" />
+            
+            <!-- Quran Spine Binding -->
+            <path d="M22 17.5 L22 28" stroke="url(#logoGold)" stroke-width="1.5" stroke-linecap="round" />
+            
+            <!-- Gold Ribbon Bookmark -->
+            <path d="M22 21 C23 23.5 23.5 26.5 24 30 L25.5 28.5 L27 30 C26 26.5 24 23.5 22 21 Z" fill="url(#logoGold)" />
+            
+            <!-- Subtle Verse Lines -->
+            <line x1="12.5" y1="21.5" x2="19" y2="20.5" stroke="#059669" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round" />
+            <line x1="12.5" y1="23.8" x2="19" y2="22.8" stroke="#059669" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round" />
+            <line x1="12.5" y1="26" x2="17.5" y2="25.2" stroke="#059669" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round" />
+            
+            <line x1="25" y1="20.5" x2="31.5" y2="21.5" stroke="#059669" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round" />
+            <line x1="25" y1="22.8" x2="31.5" y2="23.8" stroke="#059669" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round" />
+            <line x1="26.5" y1="25.2" x2="31.5" y2="26" stroke="#059669" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">Al-Qur'an Indonesia</span>
+          <span class="brand-subtitle">Standar Kemenag RI</span>
+        </div>
+      </a>
+
+      <!-- Center Navigation Pills -->
+      <nav class="nav-links-center">
+        <a href="#home" class="nav-link-pill active" id="navPillSurah">
+          <span>📖</span> <span>Al-Qur'an</span>
+        </a>
+        <a href="javascript:void(0)" onclick="switchTab('juz')" class="nav-link-pill" id="navPillJuz">
+          <span>✨</span> <span>30 Juz</span>
+        </a>
+        <a href="#doa" class="nav-link-pill" id="navPillDoa">
+          <span>🤲</span> <span>Doa Pilihan</span>
+        </a>
+        <a href="#asmaul" class="nav-link-pill" id="navPillAsmaul">
+          <span>💎</span> <span>Asmaul Husna</span>
+        </a>
+        <a href="javascript:void(0)" onclick="switchTab('bookmark')" class="nav-link-pill" id="navPillBookmark">
+          <span>🔖</span> <span>Tersimpan</span>
+        </a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="nav-actions">
+        <!-- Spotlight Search Trigger -->
+        <button class="btn-search-trigger" onclick="openSpotlight()" title="Cari Surat (Tekan ⌘K atau Ctrl+K)">
+          <span>🔍</span>
+          <span>Cari surat...</span>
+          <span class="kbd-badge">⌘K</span>
+        </button>
+
+        <!-- Quick Theme Toggle (Cycle: Light -> Sepia -> Dark) -->
+        <button class="btn-header-action" id="btnQuickTheme" onclick="cycleQuickTheme()" title="Ganti Tema Tampilan (Terang / Sepia / Gelap)">
+          ☀️
+        </button>
+
+        <!-- Settings Sheet Trigger -->
+        <button class="btn-header-action" onclick="openSettingsSheet()" title="Pengaturan Kenyamanan Membaca">
+          ⚙️
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Main Content Container
+       ========================================================================== -->
+  <main class="container" style="flex: 1;">
+
+    <!-- ==================== VIEW 1: BERANDA ==================== -->
+    <div id="homeView">
+      
+      <!-- Bento Hero Grid -->
+      <section class="hero-bento">
+        
+        <!-- Left Card: Welcome Banner & Resume Reading -->
+        <div class="hero-banner-card">
+          <div class="hero-pattern-overlay"></div>
+          <div>
+            <div class="hero-badge-pill">
+              <span>✦</span> Kitab Suci Al-Qur'an Al-Karim
+            </div>
+            <h1 class="hero-quote-text">
+              "Sebaik-baik kalian adalah yang mempelajari Al-Qur'an dan mengajarkannya."
+            </h1>
+            <p class="hero-quote-sub">
+              Lengkap 114 Surat & 30 Juz dengan terjemahan resmi Kemenag RI, audio murottal merdu 6 qari internasional, tafsir ringkas, dan tipografi nyaman di mata.
+            </p>
+          </div>
+
+          <!-- Last Read Dynamic Row -->
+          <div class="hero-action-row" id="lastReadContainer"></div>
+        </div>
+
+        <!-- Right Card: Ayat Pilihan Hari Ini (Daily Verse) -->
+        <div class="daily-verse-card">
+          <div>
+            <div class="daily-header">
+              <span class="daily-badge">✨ Ayat Pilihan Hari Ini</span>
+              <span class="daily-surah-ref" id="dailySurahRef">QS. Al-Baqarah: 255</span>
+            </div>
+            <div class="daily-arabic" id="dailyArabic">
+              اللّٰهُ لَآ اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّوْمُۚ
+            </div>
+            <p class="daily-translation" id="dailyTranslation">
+              "Allah, tidak ada tuhan selain Dia. Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya)..."
+            </p>
+          </div>
+          <div class="daily-footer-actions">
+            <button class="btn-read-action" onclick="playDailyVerse()" id="btnPlayDaily">
+              <span>▶</span> <span>Dengarkan</span>
+            </button>
+            <button class="btn-read-action" onclick="navigateToSurah(dailyVerseData.surahNo, dailyVerseData.ayahNo)">
+              <span>Buka Surat</span> <span>→</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Content Toolbar (Tabs & Filters) -->
+      <section class="content-toolbar">
+        <div class="segmented-control" id="mainFilterTabs">
+          <button class="seg-btn active" data-tab="all" onclick="filterSurahTab('all', event)">
+            Semua Surat <span class="kbd-badge" style="background: none; border: none; color: inherit;">114</span>
+          </button>
+          <button class="seg-btn" data-tab="Mekah" onclick="filterSurahTab('Mekah', event)">
+            Makkiyyah
+          </button>
+          <button class="seg-btn" data-tab="Madinah" onclick="filterSurahTab('Madinah', event)">
+            Madaniyyah
+          </button>
+          <button class="seg-btn" data-tab="juz" onclick="filterSurahTab('juz', event)">
+            30 Juz
+          </button>
+          <button class="seg-btn" data-tab="bookmark" onclick="filterSurahTab('bookmark', event)">
+            Markah Disimpan
+          </button>
+        </div>
+
+        <div class="surah-counter-badge" id="surahCounterLabel">
+          Menampilkan 114 Surat
+        </div>
+      </section>
+
+      <!-- Grid Surat 114 -->
+      <div id="surahGridSection">
+        <div class="surah-grid" id="surahGridContainer"></div>
+      </div>
+
+      <!-- Section 30 Juz -->
+      <div id="juzGridSection" style="display: none;">
+        <h3 style="margin-bottom: 1.25rem; font-weight: 800; font-size: 1.3rem;">Daftar Pembagian 30 Juz</h3>
+        <div class="surah-grid" id="juzGridContainer"></div>
+      </div>
+
+      <!-- Section Bookmark -->
+      <div id="bookmarkGridSection" style="display: none;">
+        <h3 style="margin-bottom: 1.25rem; font-weight: 800; font-size: 1.3rem;">Ayat yang Ditandai (Markah)</h3>
+        <div class="surah-grid" id="bookmarkGridContainer"></div>
+      </div>
+
+    </div>
+
+    <!-- ==================== VIEW 2: DETAIL SURAT ==================== -->
+    <div id="surahDetailView" style="display: none;"></div>
+
+    <!-- ==================== VIEW 3: DOA AL-QUR'AN ==================== -->
+    <div id="doaView" style="display: none; padding-top: 1.5rem;">
+      <div style="margin-bottom: 1.5rem;">
+        <a href="#home" class="btn-read-action"><span>←</span> Kembali ke Beranda</a>
+      </div>
+      <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+        🤲 Doa-doa Mustajab Al-Qur'an & Doa Khatam
+      </h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">
+        Kumpulan doa-doa pilihan dari Al-Qur'an dan doa setelah menyelesaikan tilawah Al-Qur'an.
+      </p>
+      <div id="doaListContainer"></div>
+    </div>
+
+    <!-- ==================== VIEW 4: ASMAUL HUSNA ==================== -->
+    <div id="asmaulView" style="display: none; padding-top: 1.5rem;">
+      <div style="margin-bottom: 1.5rem;">
+        <a href="#home" class="btn-read-action"><span>←</span> Kembali ke Beranda</a>
+      </div>
+      <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+        💎 99 Asmaul Husna
+      </h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">
+        Nama-nama Allah yang Maha Indah dan Maha Agung beserta teks Arab, transliterasi Latin, dan terjemahan artinya.
+      </p>
+      <div class="asmaul-grid" id="asmaulListContainer"></div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       Floating Audio Dock (Apple/Spotify Style)
+       ========================================================================== -->
+  <div class="audio-dock-container">
+    <div class="audio-dock" id="floatingAudioDock">
+      
+      <!-- Track Meta Left -->
+      <div class="dock-left-meta">
+        <div class="dock-icon-disc">
+          <span>🔊</span>
+        </div>
+        <div class="dock-info-titles">
+          <span class="dock-track-title" id="dockTrackTitle">Murottal Al-Qur'an</span>
+          <span class="dock-track-sub" id="dockTrackReciter">Misyari Rasyid Al-Afasi</span>
+        </div>
+      </div>
+
+      <!-- Controls Center -->
+      <div class="dock-controls-center">
+        <div class="dock-btn-row">
+          <button class="btn-dock-sub" onclick="playPrevAyah()" title="Ayat Sebelumnya">
+            ⏮
+          </button>
+          <button class="btn-dock-main" id="btnDockPlay" onclick="toggleAudioPlayPause()" title="Putar / Jeda">
+            ▶
+          </button>
+          <button class="btn-dock-sub" onclick="playNextAyah()" title="Ayat Selanjutnya">
+            ⏭
+          </button>
+          <button class="btn-dock-sub" id="btnRepeatAyah" onclick="toggleRepeatAyah()" title="Ulangi Ayat Ini (Loop untuk Muroja'ah)">
+            🔁
+          </button>
+          <button class="btn-dock-sub" onclick="stopAudio()" title="Hentikan Murottal">
+            ⏹
+          </button>
+        </div>
+        
+        <div class="dock-progress-wrapper">
+          <span class="dock-timestamp" id="dockCurrentTime">0:00</span>
+          <input type="range" class="dock-slider" id="dockSlider" value="0" min="0" max="100">
+          <span class="dock-timestamp" id="dockDuration">0:00</span>
+        </div>
+      </div>
+
+      <!-- Right Extras -->
+      <div class="dock-right-actions">
+        <button class="dock-speed-pill" id="dockSpeedBtn" onclick="changePlaybackSpeed()" title="Ubah Kecepatan Murottal">
+          1.0x
+        </button>
+        <button class="btn-dock-sub" onclick="stopAudio()" title="Tutup Pemutar">
+          ✕
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Spotlight Quick Search Modal (Cmd+K)
+       ========================================================================== -->
+  <div class="spotlight-overlay" id="spotlightOverlay" onclick="closeSpotlightOnBackdrop(event)">
+    <div class="spotlight-card">
+      <div class="spotlight-input-bar">
+        <span class="spotlight-icon">🔍</span>
+        <input 
+          type="text" 
+          id="spotlightSearchInput" 
+          class="spotlight-input" 
+          placeholder="Ketik nama surat, nomor surat, atau arti (misal: Kahf, Yasin, 18, Sapi)..."
+          autocomplete="off"
+        >
+        <span class="kbd-badge">ESC</span>
+      </div>
+      <div class="spotlight-results" id="spotlightResults"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Slide-Over Settings Sheet (Kenyamanan Membaca)
+       ========================================================================== -->
+  <div class="sheet-overlay" id="settingsSheetOverlay" onclick="closeSheetOnBackdrop(event, 'settingsSheetOverlay')">
+    <div class="sheet-panel">
+      <div class="sheet-header">
+        <h3 class="sheet-title">
+          <span>⚙️</span> Pengaturan Membaca
+        </h3>
+        <button class="btn-sheet-close" onclick="closeSettingsSheet()">✕</button>
+      </div>
+
+      <div class="sheet-body">
+        
+        <!-- Pilihan Tema -->
+        <div class="settings-section-card">
+          <div class="settings-field-title">
+            <span>Tema Tampilan</span>
+          </div>
+          <div class="theme-selector-grid">
+            <div class="theme-pill-btn active" data-theme="light" onclick="setTheme('light')">
+              <div class="theme-circle-preview" style="background: #ffffff; border: 2px solid #e2e8f0;"></div>
+              <span>Terang</span>
+            </div>
+            <div class="theme-pill-btn" data-theme="dark" onclick="setTheme('dark')">
+              <div class="theme-circle-preview" style="background: #090d16;"></div>
+              <span>Gelap</span>
+            </div>
+            <div class="theme-pill-btn" data-theme="sepia" onclick="setTheme('sepia')">
+              <div class="theme-circle-preview" style="background: #f7f1e3; border: 2px solid #e3d5be;"></div>
+              <span>Sepia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilihan Desain Logo (4 Gaya) -->
+        <div class="settings-section-card">
+          <div class="settings-field-title">
+            <span>Desain Logo Website</span>
+            <span class="kbd-badge" style="color: var(--primary);">4 Varian</span>
+          </div>
+          <div class="logo-choice-grid">
+            <div class="logo-choice-btn active" data-logo="kaligrafi" onclick="setLogoVariant('kaligrafi')">
+              <div class="logo-mini-icon">القرآن</div>
+              <span>Kaligrafi Arab</span>
+            </div>
+            <div class="logo-choice-btn" data-logo="mushaf" onclick="setLogoVariant('mushaf')">
+              <div class="logo-mini-icon">📖</div>
+              <span>Mushaf & Rehal</span>
+            </div>
+            <div class="logo-choice-btn" data-logo="hilal" onclick="setLogoVariant('hilal')">
+              <div class="logo-mini-icon">🌙</div>
+              <span>Bulan & Kubah</span>
+            </div>
+            <div class="logo-choice-btn" data-logo="rubelhizb" onclick="setLogoVariant('rubelhizb')">
+              <div class="logo-mini-icon">۞</div>
+              <span>Rub el Hizb</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ukuran Huruf & Live Preview -->
+        <div class="settings-section-card">
+          <div class="settings-field-title">
+            <span>Ukuran Tulisan Arab</span>
+            <span class="kbd-badge" id="previewArabicSizeVal">34px</span>
+          </div>
+          <input 
+            type="range" 
+            id="sheetArabicSlider" 
+            class="dock-slider" 
+            min="24" 
+            max="48" 
+            value="34" 
+            oninput="setArabicSize(this.value)"
+          >
+
+          <!-- Live Preview Box -->
+          <div class="typography-preview-box">
+            بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+          </div>
+        </div>
+
+        <div class="settings-section-card">
+          <div class="settings-field-title">
+            <span>Ukuran Terjemahan Indonesia</span>
+            <span class="kbd-badge" id="previewTransSizeVal">15.5px</span>
+          </div>
+          <input 
+            type="range" 
+            id="sheetTransSlider" 
+            class="dock-slider" 
+            min="13" 
+            max="22" 
+            value="15.5" 
+            step="0.5"
+            oninput="setTransSize(this.value)"
+          >
+        </div>
+
+        <!-- Toggle Sakelar -->
+        <div class="settings-section-card" style="padding: 0.5rem 1.25rem;">
+          <div class="setting-switch-row">
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Transliterasi Latin</div>
+              <div style="font-size: 0.75rem; color: var(--text-faint);">Tampilkan panduan cara baca</div>
+            </div>
+            <input type="checkbox" id="toggleLatinCheckbox" checked onchange="toggleLatin(this.checked)" style="transform: scale(1.3); cursor: pointer; accent-color: var(--primary);">
+          </div>
+
+          <div class="setting-switch-row">
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Terjemahan Kemenag RI</div>
+              <div style="font-size: 0.75rem; color: var(--text-faint);">Arti ayat bahasa Indonesia resmi</div>
+            </div>
+            <input type="checkbox" id="toggleTransCheckbox" checked onchange="toggleTranslation(this.checked)" style="transform: scale(1.3); cursor: pointer; accent-color: var(--primary);">
+          </div>
+
+          <div class="setting-switch-row">
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Lanjut Putar Otomatis</div>
+              <div style="font-size: 0.75rem; color: var(--text-faint);">Lanjut ke ayat berikutnya setelah selesai</div>
+            </div>
+            <input type="checkbox" id="toggleAutoNextCheckbox" checked onchange="currentSettings.autoPlayNext = this.checked; saveSettings();" style="transform: scale(1.3); cursor: pointer; accent-color: var(--primary);">
+          </div>
+
+          <div class="setting-switch-row">
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Gulir Otomatis (Auto-Scroll)</div>
+              <div style="font-size: 0.75rem; color: var(--text-faint);">Layar mengikuti ayat yang bersuara</div>
+            </div>
+            <input type="checkbox" id="toggleAutoScrollCheckbox" checked onchange="currentSettings.autoScroll = this.checked; saveSettings();" style="transform: scale(1.3); cursor: pointer; accent-color: var(--primary);">
+          </div>
+        </div>
+
+        <!-- Qari Selector -->
+        <div class="settings-section-card">
+          <div class="settings-field-title">
+            <span>Pilihan Qari Murottal</span>
+          </div>
+          <select class="select-modern" id="sheetQariSelect" style="width: 100%;" onchange="changeQari(this.value)">
+            <option value="05">Misyari Rasyid Al-Afasi</option>
+            <option value="03">Abdurrahman As-Sudais (Imam Masjidil Haram)</option>
+            <option value="01">Abdullah Al-Juhany</option>
+            <option value="02">Abdul Muhsin Al-Qasim</option>
+            <option value="04">Ibrahim Al-Akhdar</option>
+            <option value="06">Ahmad Ali Al-Husaily</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Slide-Over Tafsir Kemenag Sheet
+       ========================================================================== -->
+  <div class="sheet-overlay" id="tafsirSheetOverlay" onclick="closeSheetOnBackdrop(event, 'tafsirSheetOverlay')">
+    <div class="sheet-panel">
+      <div class="sheet-header">
+        <h3 class="sheet-title" id="tafsirSheetTitle">
+          <span>📖</span> Tafsir Ayat
+        </h3>
+        <button class="btn-sheet-close" onclick="closeTafsirSheet()">✕</button>
+      </div>
+      <div class="sheet-body" id="tafsirSheetBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Anchor -->
+  <div class="toast-anchor" id="toastContainer"></div>
+
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner-box">
+        <div>
+          <strong style="color: var(--primary); font-size: 1rem;">Al-Qur'an Indonesia</strong> — Mushaf Digital & Terjemahan Resmi.<br>
+          <span style="font-size: 0.8rem; color: var(--text-faint);">
+            Teks, transliterasi Latin, terjemahan, dan tafsir bersumber dari Kementerian Agama RI (Kemenag).
+          </span>
+        </div>
+        <div class="footer-nav-links">
+          <a href="#home">Beranda</a>
+          <a href="#doa">Doa Al-Qur'an</a>
+          <a href="#asmaul">Asmaul Husna</a>
+          <a href="javascript:void(0)" onclick="openSettingsSheet()">Pengaturan</a>
+        </div>
+      </div>
+
+      <!-- Credit Bar -->
+      <div class="footer-credit-bar">
+        <span>© 2026 Al-Qur'an Indonesia Digital</span>
+        <div class="credit-badge">
+          <span>✨</span>
+          <span>Designed by <strong style="color: var(--primary);">Anzis Rohman</strong></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/surah-data.js"></script>
+  <script src="js/doa-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

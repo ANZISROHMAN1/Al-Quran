@@ -2,12 +2,22 @@
 <html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Al-Qur'an Indonesia - Baca Online & Terjemahan Lengkap Kemenag RI</title>
   <meta name="description" content="Baca Al-Qur'an 30 Juz 114 Surat lengkap dengan terjemahan bahasa Indonesia standar Kemenag RI, audio murottal merdu, tafsir ringkas, dan tipografi nyaman di mata.">
 
-  <!-- Favicon SVG -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+  <!-- PWA & Mobile Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#047857" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#064e3b" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Al-Qur'an">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Favicon SVG & PNG -->
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 
   <!-- Preconnect Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,6 +140,21 @@
     <!-- ==================== VIEW 1: BERANDA ==================== -->
     <div id="homeView">
       
+      <!-- Mobile PWA Install Banner -->
+      <div class="mobile-install-banner" id="mobileInstallBanner" style="display: none;">
+        <div class="m-banner-content">
+          <span class="m-banner-icon">📱</span>
+          <div>
+            <div class="m-banner-title">Install Aplikasi Al-Qur'an</div>
+            <div class="m-banner-sub">Akses lebih cepat & nyaman langsung dari layar HP Anda</div>
+          </div>
+        </div>
+        <div class="m-banner-actions">
+          <button class="btn-banner-install" onclick="triggerPWAInstall()">Install</button>
+          <button class="btn-banner-dismiss" onclick="dismissPWAInstall()" aria-label="Tutup Banner">✕</button>
+        </div>
+      </div>
+
       <!-- Bento Hero Grid -->
       <section class="hero-bento">
         
@@ -534,6 +559,32 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==========================================================================
+       Mobile Bottom Navigation Bar (Docked App Bar)
+       ========================================================================== -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Navigasi Bawah">
+    <a href="#home" class="mobile-nav-item active" id="mNavSurah" onclick="switchMobileTab('surah')">
+      <span class="m-nav-icon">📖</span>
+      <span class="m-nav-label">Surat</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="mNavJuz" onclick="switchMobileTab('juz')">
+      <span class="m-nav-icon">✨</span>
+      <span class="m-nav-label">30 Juz</span>
+    </a>
+    <a href="#doa" class="mobile-nav-item" id="mNavDoa" onclick="switchMobileTab('doa')">
+      <span class="m-nav-icon">🤲</span>
+      <span class="m-nav-label">Doa</span>
+    </a>
+    <a href="#asmaul" class="mobile-nav-item" id="mNavAsmaul" onclick="switchMobileTab('asmaul')">
+      <span class="m-nav-icon">💎</span>
+      <span class="m-nav-label">Asmaul</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="mNavBookmark" onclick="switchMobileTab('bookmark')">
+      <span class="m-nav-icon">🔖</span>
+      <span class="m-nav-label">Markah</span>
+    </a>
+  </nav>
 
   <!-- Scripts -->
   <script src="js/surah-data.js"></script>

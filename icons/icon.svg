@@ -1,0 +1,54 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pwaBgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="pwaGold" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="pwaPageL" x1="140" y1="180" x2="256" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <linearGradient id="pwaPageR" x1="256" y1="180" x2="372" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ecfdf5" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded rect -->
+  <rect width="512" height="512" rx="110" fill="url(#pwaBgGrad)" />
+  <rect x="16" y="16" width="480" height="480" rx="94" stroke="url(#pwaGold)" stroke-width="12" stroke-opacity="0.75" />
+
+  <!-- Center Islamic Geometric Star Motif -->
+  <path d="M256 68 L274 112 L318 130 L274 148 L256 192 L238 148 L194 130 L238 112 Z" fill="url(#pwaGold)" />
+
+  <!-- Rehal / Book Stand Base -->
+  <path d="M160 400 L256 328 L352 400 M196 370 L316 370" stroke="url(#pwaGold)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Open Quran Pages -->
+  <path d="M256 210 C210 198 152 210 122 234 C116 239 114 246 114 253 L114 335 C140 317 198 305 256 323 Z" fill="url(#pwaPageL)" />
+  <path d="M256 210 C302 198 360 210 390 234 C396 239 398 246 398 253 L398 335 C372 317 314 305 256 323 Z" fill="url(#pwaPageR)" />
+
+  <!-- Quran Spine Binding -->
+  <path d="M256 204 L256 330" stroke="url(#pwaGold)" stroke-width="18" stroke-linecap="round" />
+
+  <!-- Gold Ribbon Bookmark -->
+  <path d="M256 246 C268 276 274 312 280 354 L298 336 L316 354 C304 312 280 276 256 246 Z" fill="url(#pwaGold)" />
+
+  <!-- Arabic Calligraphy "القرآن" -->
+  <text x="256" y="165" font-family="'Amiri', 'Traditional Arabic', serif" font-size="64" font-weight="bold" fill="url(#pwaGold)" text-anchor="middle">القرآن الكريم</text>
+
+  <!-- Left Page Verse Lines -->
+  <line x1="146" y1="252" x2="224" y2="240" stroke="#059669" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round" />
+  <line x1="146" y1="280" x2="224" y2="268" stroke="#059669" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round" />
+  <line x1="146" y1="308" x2="206" y2="298" stroke="#059669" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round" />
+
+  <!-- Right Page Verse Lines -->
+  <line x1="288" y1="240" x2="366" y2="252" stroke="#059669" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round" />
+  <line x1="288" y1="268" x2="366" y2="280" stroke="#059669" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round" />
+  <line x1="306" y1="298" x2="366" y2="308" stroke="#059669" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round" />
+</svg>

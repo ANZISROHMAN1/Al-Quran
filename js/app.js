@@ -345,17 +345,30 @@ function playDailyVerse() {
 function handleHashRouting() {
   const hash = window.location.hash || '#home';
 
-  // Update Navigation Active Pills
+  // Update Navigation Active Pills (Desktop & Mobile)
   document.querySelectorAll('.nav-link-pill').forEach(pill => pill.classList.remove('active'));
+  document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
+
   if (hash === '#home' || hash === '' || hash.startsWith('#surah')) {
     const pill = document.getElementById('navPillSurah');
     if (pill) pill.classList.add('active');
+    const mPill = document.getElementById('mNavSurah');
+    if (mPill) mPill.classList.add('active');
   } else if (hash === '#doa') {
     const pill = document.getElementById('navPillDoa');
     if (pill) pill.classList.add('active');
+    const mPill = document.getElementById('mNavDoa');
+    if (mPill) mPill.classList.add('active');
   } else if (hash === '#asmaul') {
     const pill = document.getElementById('navPillAsmaul');
     if (pill) pill.classList.add('active');
+    const mPill = document.getElementById('mNavAsmaul');
+    if (mPill) mPill.classList.add('active');
+  } else if (hash === '#bookmarks') {
+    const pill = document.getElementById('navPillBookmark');
+    if (pill) pill.classList.add('active');
+    const mPill = document.getElementById('mNavBookmark');
+    if (mPill) mPill.classList.add('active');
   }
 
   if (hash === '#home' || hash === '#') {
@@ -557,7 +570,11 @@ function filterSurahTab(tab, evt) {
   const bookmarkSec = document.getElementById('bookmarkGridSection');
   const counterLabel = document.getElementById('surahCounterLabel');
 
+  // Sync mobile bottom nav items
+  document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
+
   if (tab === 'juz') {
+    document.getElementById('mNavJuz')?.classList.add('active');
     surahSec.style.display = 'none';
     juzSec.style.display = 'block';
     bookmarkSec.style.display = 'none';
@@ -567,6 +584,7 @@ function filterSurahTab(tab, evt) {
   }
 
   if (tab === 'bookmark') {
+    document.getElementById('mNavBookmark')?.classList.add('active');
     surahSec.style.display = 'none';
     juzSec.style.display = 'none';
     bookmarkSec.style.display = 'block';
@@ -576,6 +594,7 @@ function filterSurahTab(tab, evt) {
   }
 
   // Filter Surat (all / Mekah / Madinah)
+  document.getElementById('mNavSurah')?.classList.add('active');
   surahSec.style.display = 'block';
   juzSec.style.display = 'none';
   bookmarkSec.style.display = 'none';
@@ -593,6 +612,35 @@ function filterSurahTab(tab, evt) {
 function switchTab(tab) {
   showHomeView();
   filterSurahTab(tab);
+}
+
+function switchMobileTab(tab) {
+  if (tab === 'surah') {
+    if (window.location.hash !== '#home' && window.location.hash !== '') {
+      window.location.hash = '#home';
+    } else {
+      showHomeView();
+    }
+    filterSurahTab('all');
+  } else if (tab === 'juz') {
+    if (window.location.hash !== '#home' && window.location.hash !== '') {
+      window.location.hash = '#home';
+    } else {
+      showHomeView();
+    }
+    filterSurahTab('juz');
+  } else if (tab === 'doa') {
+    window.location.hash = '#doa';
+  } else if (tab === 'asmaul') {
+    window.location.hash = '#asmaul';
+  } else if (tab === 'bookmark') {
+    if (window.location.hash !== '#home' && window.location.hash !== '') {
+      window.location.hash = '#home';
+    } else {
+      showHomeView();
+    }
+    filterSurahTab('bookmark');
+  }
 }
 
 // ==========================================================================
@@ -1484,4 +1532,49 @@ function showToast(msg) {
     toast.style.transition = 'all 0.25s ease';
     setTimeout(() => toast.remove(), 250);
   }, 2700);
+}
+
+// ==========================================================================
+// PWA Support & Mobile Installation Handler
+// ==========================================================================
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').then((reg) => {
+      console.log('Al-Qur\'an PWA Service Worker Registered:', reg.scope);
+    }).catch((err) => {
+      console.warn('Service Worker registration failed:', err);
+    });
+  });
+}
+
+let deferredPWAInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPWAInstallPrompt = e;
+  const banner = document.getElementById('mobileInstallBanner');
+  if (banner && !sessionStorage.getItem('pwa_banner_dismissed')) {
+    banner.style.display = 'flex';
+  }
+});
+
+function triggerPWAInstall() {
+  if (deferredPWAInstallPrompt) {
+    deferredPWAInstallPrompt.prompt();
+    deferredPWAInstallPrompt.userChoice.then((choice) => {
+      if (choice.outcome === 'accepted') {
+        const banner = document.getElementById('mobileInstallBanner');
+        if (banner) banner.style.display = 'none';
+        showToast('Aplikasi Al-Qur\'an berhasil ditambahkan ke HP Anda!');
+      }
+      deferredPWAInstallPrompt = null;
+    });
+  } else {
+    showToast('Buka menu browser Anda lalu pilih "Tambahkan ke Layar Utama" (Add to Home Screen)');
+  }
+}
+
+function dismissPWAInstall() {
+  const banner = document.getElementById('mobileInstallBanner');
+  if (banner) banner.style.display = 'none';
+  sessionStorage.setItem('pwa_banner_dismissed', 'true');
 }
